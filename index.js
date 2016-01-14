@@ -1,15 +1,11 @@
-"use strict"
-
 var fileWidget = require('file-browser-widget')
 
 module.exports = function (rootDir, children, htmlEl) {
     var widget = fileWidget()
     var rootDirs = makeFileArray(rootDir)
-    console.log(rootDir)
     // find top-level nodes
     var nodesToPrint = []
     children.forEach(function (entry) {
-	    console.log(entry)
 	    var nodeDirs = makeFileArray(entry.path)
 	    if (nodeDirs.length === (rootDirs.length + 1)) {
 		var isChild = true
@@ -23,31 +19,9 @@ module.exports = function (rootDir, children, htmlEl) {
 	widget.directory(rootDir, nodesToPrint)
 	widget.appendTo(htmlEl)
 }
-    /*
 
 
-
-	  var that = new events.EventEmitter()
-  var comp
-
-
-    console.log(entry)
-    children.push({
-      type: entry.type,
-      path: entry.value.name,
-      size: entry.value.size,
-      mtime: entry.value.mtime
-    })
-  })
-  fileWidget.appendTo(
-  treeWidget.rootDirectory('/', children)
-  fileWidget.directory('/', children)
-}
-    */
-
-
-    function makeFileArray(pathName) {
-	console.log(pathName)
+function makeFileArray(pathName) {
 	var fileArray = pathName.split('/')
 	    while (fileArray[0] === "") {
 	      fileArray.shift() // remove empty items from the beginning
@@ -56,4 +30,4 @@ module.exports = function (rootDir, children, htmlEl) {
 	  fileArray.pop() // remove empty items from the end
       }
       return fileArray
-  }
+}
