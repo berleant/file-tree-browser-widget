@@ -1,0 +1,13 @@
+{
+  "name": "file-tree-browser-widget",
+  "version": "1.0.0",
+  "description": "Like file-browser-widget, but understands filepaths",
+  "main": "index.js",
+  "devDependencies": {
+    "browserify": "^12.0.1",
+    "watchify": "^3.6.1"
+  },
+  "dependencies": {
+    "file-browser-widget": "^1.0.5"
+  }
+}
