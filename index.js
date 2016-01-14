@@ -18,6 +18,7 @@ module.exports = function (rootDir, children, htmlEl) {
 
 	widget.directory(rootDir, nodesToPrint)
 	widget.appendTo(htmlEl)
+        return widget
 }
 
 
