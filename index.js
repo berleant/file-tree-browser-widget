@@ -24,7 +24,7 @@ module.exports = function (rootDir, children, htmlEl) {
 
 function makeFileArray(pathName) {
     var fileArray = pathName.split('/')
-    while (fileArray[0] === "") {
+    while (fileArray[0] === "" || fileArray[0] === ".") {
 	fileArray.shift() // remove empty items from the beginning
     }
     while (fileArray[fileArray.length - 1] === "") {
