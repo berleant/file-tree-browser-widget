@@ -1,6 +1,6 @@
 {
   "name": "file-tree-browser-widget",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Like file-browser-widget, but understands filepaths",
   "main": "index.js",
   "dependencies": {
