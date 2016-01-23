@@ -1,6 +1,28 @@
 var fileWidget = require('file-browser-widget')
 
-module.exports = function (rootDir, children, htmlEl) {
+module.exports = function createBrowser (root, children, el, cbDisplayFile) {
+  console.log('made it to file-tree-browser-widget')
+  noError = null
+  el.innerHTML = ''
+  var browser = createTree(root, children, el)
+
+  browser.on('entry', function (entry) {
+    display(entry)
+
+    function display (entry) {
+      if (entry.type === 'directory') {
+        browser = createBrowser(entry.path, children, el, cbDisplayFile)
+        browser.on('entry', function (entry) { display(entry) })
+      } else { // entry.type === 'file'
+        cbDisplayFile(noError, entry)
+      }
+    }
+  })
+
+  return browser
+}
+
+function createTree (rootDir, children, htmlEl) {
   var widget = fileWidget()
   var rootDirs = makeFileArray(rootDir)
   // find top-level nodes
