@@ -1,7 +1,6 @@
 var fileWidget = require('file-browser-widget')
 
 module.exports = function createBrowser (root, children, el, cbDisplayFile) {
-  console.log('made it to file-tree-browser-widget')
   noError = null
   el.innerHTML = ''
   var browser = createTree(root, children, el)
